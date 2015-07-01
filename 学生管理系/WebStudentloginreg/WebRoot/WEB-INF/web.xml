@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.4" 
+	xmlns="http://java.sun.com/xml/ns/j2ee" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee 
+	http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+
+   
+  
+  
+  <servlet>
+        <servlet-name>Login</servlet-name>
+        <servlet-class>jxau.linhu.servlet.LoginServelet</servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>Login</servlet-name>
+        <url-pattern>/Login</url-pattern>
+    </servlet-mapping>
+  
+    
+	    
+	<servlet>
+	     <servlet-name>RegisterServelet</servlet-name>
+	     <servlet-class>jxau.linhu.servlet.RegisterServelet</servlet-class>
+	</servlet>
+	    
+	<servlet-mapping>
+	     <servlet-name>RegisterServelet</servlet-name>
+	     <url-pattern>/RegisterServelet</url-pattern>
+	</servlet-mapping>
+	    
+	
+	
+	<servlet>
+        <servlet-name>studentInfo</servlet-name>
+        <servlet-class>jxau.linhu.servlet.StudentInfoServelet</servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>studentInfo</servlet-name>
+        <url-pattern>/studentInfo</url-pattern>
+    </servlet-mapping>    
+    
+    
+     
+    
+    
+    <servlet>
+        <servlet-name>UserDel</servlet-name>
+        <servlet-class>jxau.linhu.servlet.UserDelServlet</servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>UserDel</servlet-name>
+        <url-pattern>/UserDel</url-pattern>
+    </servlet-mapping>
+    
+  
+    <servlet>
+        <servlet-name>UpdataUser</servlet-name>
+        <servlet-class>jxau.linhu.servlet.UpdataUserServelet</servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>UpdataUser</servlet-name>
+        <url-pattern>/updataUser</url-pattern>
+    </servlet-mapping>
+  
+  <servlet>
+        <servlet-name>modifyUser</servlet-name>
+        <servlet-class>jxau.linhu.servlet.modifyUserServelet</servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>modifyUser</servlet-name>
+        <url-pattern>/modifyUser</url-pattern>
+    </servlet-mapping>
+  <!-- 登录过滤 ，所有登录的用户必须在登录成功后设置session置，session.setAttribute("username",登录的用户)-->
+	<filter>	
+		<filter-name>accessFilter</filter-name>
+		<filter-class>jxau.linhu.filter.AccessController</filter-class>
+	</filter>
+	
+	<filter-mapping>
+		<filter-name>accessFilter</filter-name>
+		<url-pattern>*.jsp</url-pattern>
+	</filter-mapping>
+	<!-- 登录过滤 -->
+	<filter>
+    <filter-name>Encodingfilter</filter-name>
+    <filter-class>jxau.linhu.filter.Encodingfilter</filter-class>
+    <init-param>
+      <param-name>encoding</param-name>
+      <param-value>utf-8</param-value>
+    </init-param>
+  </filter>
+  <filter-mapping>
+    <filter-name>Encodingfilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+	<!-- 设置seeion值，30分后系统不操作，自动退出 -->
+	<session-config>
+        <session-timeout>30</session-timeout>
+    </session-config>
+    
+</web-app>
